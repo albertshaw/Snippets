@@ -1,0 +1,41 @@
+.CodeMirror-dialog {
+  position: absolute;
+  left: 0; right: 0;
+  background: white;
+  z-index: 15;
+  padding: 1em;
+  overflow: hidden;
+  color: #333;
+}
+
+.CodeMirror-dialog-top {
+  border-bottom: 1px solid #eee;
+  top: 0;
+}
+
+.CodeMirror-dialog-bottom {
+  border-top: 1px solid #eee;
+  bottom: 0;
+}
+
+.CodeMirror-dialog.searching{
+	opacity:.6;
+}
+
+.CodeMirror-dialog input {
+	margin-right:.2em;
+}
+
+.CodeMirror-dialog label {
+	font-weight:normal;
+}
+
+.CodeMirror-dialog button {
+  font-size: 60%;
+}
+.CodeMirror-dialog .closeIcon {
+	padding:1px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
