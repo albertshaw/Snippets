@@ -1,7 +1,8 @@
 #Snippets
 
 Snippets of whatever, code or life
-
+想弄个个人博客来着,刚用CodeMirror和Marked整合了个在线markdown编辑器就歇了. = =
+好吧,有空慢慢弄.
 ## Usage
 
 
