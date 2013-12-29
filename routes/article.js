@@ -12,5 +12,6 @@ exports.getHelper = function(req, res) {
 };
 
 exports.create = function(req,res) {
-    
+	console.log(req.body.article);
+	res.redirect('/');
 };
