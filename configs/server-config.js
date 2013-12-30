@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var settings = require('./settings');
 var RedisStore = require('connect-redis')(express);
+var dot = require('dot');
 
 exports.configure = function(app) {
     app.configure("development", function() {
@@ -29,7 +30,12 @@ exports.configure = function(app) {
         }));
         app.set('port', process.env.PORT || 3000);
         app.set('views', path.join(__dirname, '..', 'views'));
-        app.set('view engine', 'jade');
+        app.set("view engine", "html");
+        app.register(".html", {
+            compile: function(str) {
+                return dot.template(str);
+            }
+        });
         app.use(express.bodyParser());
         app.use(express.favicon(path.join(__dirname, '..', 'public/img/favicon.ico')));
         app.use(express.json());
