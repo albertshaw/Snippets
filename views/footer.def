@@ -1,5 +1,4 @@
       <hr>
 	  <footer>
-	    <p>&copy; AlbertShaw 2013</p>
-	    <p>Powered by <a target="_blank" href="http://nodejs.org">Nodejs</a>, created by <a href="mailto:{{!it.site.SITE_AUTHOR_EMAIL}}">{{!it.site.SITE_AUTHOR}}</a></p>
+	    <p>&copy; 2013. Created by <a href="mailto:{{!it.site.SITE_AUTHOR_EMAIL}}">{{!it.site.SITE_AUTHOR}}</a>. <a href="{{!it.site.SITE_SOURCE_CODE}}">Github</a></p>
 	  </footer>

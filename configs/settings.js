@@ -5,6 +5,7 @@ exports.config = {
 		SITE_STATIC_URL : 'http://127.0.0.1:3000',
 		SITE_DESC : 'XL的个人博客，有关技术，有关生活',
 		SITE_KEYS : '个人博客, 生活, 技术, 宅, 开发, blog, markdown, mongodb, node, express, nodejs, js, javascript, css, html',
+		SITE_SOURCE_CODE : 'https://github.com/albertshaw/Snippets',
 		SITE_AUTHOR : 'AlbertShaw',
 		SITE_AUTHOR_EMAIL : 'albertshaw@outlook.com'
 	},

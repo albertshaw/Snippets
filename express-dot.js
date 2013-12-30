@@ -7,7 +7,7 @@ var doT = require('dot').process({
 function getFileName(filename) {
 	var slashIndex = filename.lastIndexOf("\\"), dotIndex = filename
 			.lastIndexOf(".");
-	return filename.substring((~slashIndex) ? slashIndex + 1 : 0, dotIndex);
+	return filename.substring(slashIndex + 1, dotIndex);
 }
 
 function _renderFile(filename, options, cb) {
