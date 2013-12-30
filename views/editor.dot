@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{#def.header}}
+    
+    <link href="{{!it.site.SITE_STATIC_URL}}/css/lib/codemirror.css" rel="stylesheet">
+    <link href="{{!it.site.SITE_STATIC_URL}}/css/lib/dialog.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{!it.site.SITE_STATIC_URL}}/css/editor.css" rel="stylesheet">
+  </head>
+
+  <body>
+    {{#def.topnav}}
+	<div class="container editor-description">
+		<div class="jumbotron">
+          Hello, please enjoy writing with MarkDown!
+          This MarkDown editor is so-called WYSIWYG editor.
+          Use Ctrl+F to Find and Replace what you want in editor.
+          To see <a href="javascript:void(0);" id="markdownhelper">What is MarkDown?</a>
+        </div>
+	</div>
+    <div class="container editor">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-6">
+          <div id="editorview">
+          </div>
+        </div><!--/span-->
+        <div class="col-xs-12 col-sm-6 sidebar-offcanvas">
+          <div id="sidepreview">
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+      <div id="controlpanel">
+	      <label>
+		      <button type="button" class="btn btn-primary btn-xs" id="submitarticle">Submit</button>
+	      </label>
+	      <label>
+		      <button type="button" class="btn btn-primary btn-xs visible-xs" id="offcanvastoggle">Preview</button>
+	      </label>
+      </div>
+      
+      {{#def.footer}}
+    </div><!--/.container-->
+	<form id="articleform" action="createarticle" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+		<input id="formarticle" name="article" type="hidden" value="">
+		<input id="formarticlename" name="articlename" type="hidden" value="">
+		<input id="formarticletags" name="articletags" type="hidden" value="">
+	</form>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/jquery-1.10.2.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/bootstrap.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/codemirror.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/match-highlighter.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/markdown.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/searchcursor.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/codemirror-searchdialog.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/marked.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/editor.js"></script>
+  </body>
+</html>

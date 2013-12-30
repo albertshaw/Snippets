@@ -4,7 +4,7 @@ exports.list = function(req, res) {
 };
 
 exports.getEditor = function(req, res) {
-    res.sendfile(path.join(__dirname, '..', 'public/editor.html'));
+    res.render("editor", {});
 };
 
 exports.getHelper = function(req, res) {

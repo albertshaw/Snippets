@@ -1,8 +1,8 @@
 var express = require('express');
 var path = require('path');
-var settings = require('./settings');
+var settings = require('./settings').config;
 var RedisStore = require('connect-redis')(express);
-var dot = require('dot');
+var dot = require('../express-dot');
 
 exports.configure = function(app) {
     app.configure("development", function() {
@@ -23,23 +23,17 @@ exports.configure = function(app) {
         app.use(express.session({
             secret : settings.SESSION_SECRET,
             store : new RedisStore(),
-            key : 'yymg.sid',
+            key : 'XiaoLS',
             cookie : {
                 maxAge : 60000 * 60 * 24
             }
         }));
         app.set('port', process.env.PORT || 3000);
         app.set('views', path.join(__dirname, '..', 'views'));
-        app.set("view engine", "html");
-        app.register(".html", {
-            compile: function(str) {
-                return dot.template(str);
-            }
-        });
-        app.use(express.bodyParser());
+        app.set("view engine", "dot");
+        app.engine("dot", dot.__express);
         app.use(express.favicon(path.join(__dirname, '..', 'public/img/favicon.ico')));
-        app.use(express.json());
-        app.use(express.urlencoded());
+        app.use(express.bodyParser());
         app.use(express.methodOverride());
         app.use(app.router);
         app.use(express.static(path.join(__dirname, '..', 'public')));
