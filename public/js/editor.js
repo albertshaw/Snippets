@@ -83,7 +83,8 @@ $(document).ready(function () {
 	});
 	$('#submitarticle').click(function () {
 		$("#formarticle").val(_myCodeMirror.getValue());
-		//#TODO artivlename, tags, etc.
+		$("#formarticlename").val($("#titleInput").val());
+		$("#formarticletags").val($("#tagsInput").val());
 		$("#articleform").submit();
 	});
 });

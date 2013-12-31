@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var settings = require('./settings').config;
+var db = require('./db-config');
 var RedisStore = require('connect-redis')(express);
 var dot = require('../express-dot');
 
@@ -35,6 +36,7 @@ exports.configure = function(app) {
         app.use(express.favicon(path.join(__dirname, '..', 'public/img/favicon.ico')));
         app.use(express.bodyParser());
         app.use(express.methodOverride());
+        //app.use(db.configure());
         app.use(app.router);
         app.use(express.static(path.join(__dirname, '..', 'public')));
     });

@@ -21,6 +21,8 @@
 	</div>
     <div class="container editor">
       <div class="row row-offcanvas row-offcanvas-right">
+      	<input type="text" id="titleInput" placeholder="标题">
+      	<input type="text" id="tagsInput" placeholder="标签，以,隔开">
         <div class="col-xs-12 col-sm-6">
           <div id="editorview">
           </div>
@@ -41,7 +43,7 @@
       
       {{#def.footer}}
     </div><!--/.container-->
-	<form id="articleform" action="createarticle" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+	<form id="articleform" action="article/save" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 		<input id="formarticle" name="article" type="hidden" value="">
 		<input id="formarticlename" name="articlename" type="hidden" value="">
 		<input id="formarticletags" name="articletags" type="hidden" value="">

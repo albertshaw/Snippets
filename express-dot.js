@@ -12,13 +12,11 @@ function getFileName(filename) {
 
 function _renderFile(filename, options, cb) {
 	'use strict';
-	cb = (typeof cb === 'function') ? cb : function() {
-	};
 	var name = getFileName(filename);
 	var template = doT[name];
 	if (template) {
 		options.site = settings.site;
-		options.env = process.env.NODE_ENV;
+		options.env = process.env.NODE_ENV || 'development';
 		return cb(null, template(options));
 	} else {
 		return cb(new Error(name + " is not found!"));

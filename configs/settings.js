@@ -18,7 +18,8 @@ exports.config = {
 			// replset: { rs_name: 'myReplicaSetName' },
 			user : '',
 			pass : ''
-		}
+		},
+		PAGE_COUNT : 9
 	},
 	SESSION_SECRET : 'XiaoL_'
 };
