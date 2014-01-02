@@ -1,7 +1,15 @@
 var path = require('path');
 var settings = require('./configs/settings').config;
-var doT = require('dot').process({
+var dot = require('dot');
+var fs = require('fs');
+var doTemps = dot.process({
 	path : "./views"
+});
+
+fs.watch("./views", function(event, filename){
+    doTemps = dot.process({
+        path : "./views"
+    });
 });
 
 function getFileName(filename) {
@@ -13,7 +21,7 @@ function getFileName(filename) {
 function _renderFile(filename, options, cb) {
 	'use strict';
 	var name = getFileName(filename);
-	var template = doT[name];
+	var template = doTemps[name];
 	if (template) {
 		options.site = settings.site;
 		options.env = process.env.NODE_ENV || 'development';
