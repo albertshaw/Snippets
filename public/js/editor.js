@@ -22,6 +22,7 @@ $(document).ready(function () {
 			mode : 'markdown',
 			lineWrapping : true,
 			lineNumbers : true,
+			value : $("#formarticle").val(),
 			extraKeys : {
 				"Enter" : "newlineAndIndentContinueMarkdownList"
 			}
@@ -75,7 +76,7 @@ $(document).ready(function () {
 	$('#markdownhelper').click(function () {
 		$.ajax({
 			type : "GET",
-			url : "article/help",
+			url : "help",
 			success : function (data) {
 				_myCodeMirror.setValue(data);
 			}

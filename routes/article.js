@@ -4,20 +4,27 @@ var articledbc = require('../dbc/article');
 exports.list = function(req, res) {
 };
 
-exports.getArticle = function(req,res) {
-    console.log(req.body.article);
-    res.redirect('/');
+exports.getArticle = function(req, res) {
+	console.log(req.params.aid);
+	res.redirect('/');
 };
 
 exports.getEditor = function(req, res) {
-    res.render("editor", {});
+	res.render("editor", {
+		article : {}
+	});
 };
 
 exports.getHelper = function(req, res) {
-    res.sendfile(path.join(__dirname, '..', 'public/assets/markdown.txt'));
+	res.sendfile(path.join(__dirname, '..', 'public/assets/markdown.txt'));
 };
 
-exports.save = function(req,res) {
-    
-	res.redirect('/');
+exports.save = function(req, res) {
+	articledbc.save(req.body, req.db, function(err, result) {
+		if (err) {
+			req.next(err);
+		} else {
+			res.redirect('/');
+		}
+	});
 };

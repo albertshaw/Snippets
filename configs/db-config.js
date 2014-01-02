@@ -1,7 +1,8 @@
 var settings = require('./settings').config.db;
-var mongoose = require('mongoose').createConnection(settings.DB_HOST, settings.OPTIONS);
+var mongoose = require('mongoose');
 
 exports.configure = function() {
+	var db = mongoose.createConnection(settings.DB_HOST, settings.OPTIONS);
     var articleSchema = mongoose.Schema({
         createdate : {
             type : Date,
@@ -16,14 +17,15 @@ exports.configure = function() {
             type : String,
             unique : true
         },
-        content : String
+        content : String,
+        summary : String
     });
     articleSchema.index({
         name : 1
     });
-    mongoose.model('Article', articleSchema);
+    db.model('Article', articleSchema);
     return function(req, res, next) {
-        req.mongoose = mongoose;
+        req.db = db;
         next();
     };
 };
