@@ -2,15 +2,22 @@ var path = require('path');
 var settings = require('./configs/settings').config;
 var dot = require('dot');
 var fs = require('fs');
+var temppath = "./views";
 var doTemps = dot.process({
-	path : "./views"
+	path : temppath
 });
 
-fs.watch("./views", function(event, filename){
-    doTemps = dot.process({
-        path : "./views"
+function spyTemps(){
+    fs.watch(temppath, function(event, filename){
+        this.close();
+        doTemps = dot.process({
+            path : temppath
+        });
+        spyTemps();
     });
-});
+}
+
+spyTemps();
 
 function getFileName(filename) {
 	var slashIndex = filename.lastIndexOf("\\"), dotIndex = filename
