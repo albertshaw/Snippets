@@ -62,7 +62,7 @@ $(document).ready(function () {
 	_myCodeMirror.on("change", delayEmit(function (cm) {
 			$('#sidepreview').html(marked(cm.getValue()));
 		}, 500));
-
+	$('#sidepreview').html(marked(_myCodeMirror.getValue()));
 	measureBoxHeight();
 	$('#offcanvastoggle').click(function () {
 		var rowoffcanvas = $('.row-offcanvas');
@@ -86,6 +86,7 @@ $(document).ready(function () {
 		$("#formarticle").val(_myCodeMirror.getValue());
 		$("#formarticlename").val($("#titleInput").val());
 		$("#formarticletags").val($("#tagsInput").val());
+		$("#formarticlesumm").val($("#summaryInput").val());
 		$("#articleform").submit();
 	});
 });

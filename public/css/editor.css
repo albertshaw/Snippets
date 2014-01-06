@@ -68,11 +68,11 @@ h2 {
 
 .jumbotron input {
 	margin: 5px 0 0 5px;
-	width: 24em;
+	width: 55%;
 }
 
-input.long {
-	width: 50em;
+.jumbotron input.long {
+	width: 100%;
 }
 
 /*

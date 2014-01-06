@@ -23,6 +23,11 @@ h2 {
 	right:4px;
 	z-index:2;
 }
+#welcomeboard {
+	padding: 15px;
+	margin-bottom: 15px;
+	font-size: 110%;
+}
 /*
  * Off Canvas
  * --------------------------------------------------
