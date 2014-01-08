@@ -73,20 +73,4 @@ $(document).ready(function () {
                         this.innerHTML = "Preview";
                 }
         });
-        $('#markdownhelper').click(function () {
-                $.ajax({
-                        type : "GET",
-                        url : "help",
-                        success : function (data) {
-                                _myCodeMirror.setValue(data);
-                        }
-                });
-        });
-        $('#submitarticle').click(function () {
-                $("#formarticle").val(_myCodeMirror.getValue());
-                $("#formarticlename").val($("#titleInput").val());
-                $("#formarticletags").val($("#tagsInput").val());
-                $("#formarticlesumm").val($("#summaryInput").val());
-                $("#articleform").submit();
-        });
 });
