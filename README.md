@@ -1,7 +1,7 @@
 #Snippets
 
 Snippets of whatever, code or life
-想弄个个人博客来着,刚用CodeMirror和Marked整合了个[在线markdown编辑器](albertshaw.github.com/Snippets)就歇了. = =
+想弄个个人博客来着,刚用CodeMirror和Marked整合了个[在线markdown编辑器](http://albertshaw.github.io/Snippets/)就歇了. = =
 好吧,有空慢慢弄.
 ## Usage
 
