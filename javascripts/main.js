@@ -22,7 +22,6 @@ $(document).ready(function () {
                         mode : 'markdown',
                         lineWrapping : true,
                         lineNumbers : true,
-                        value : $("#formarticle").val(),
                         extraKeys : {
                                 "Enter" : "newlineAndIndentContinueMarkdownList"
                         }
@@ -62,7 +61,7 @@ $(document).ready(function () {
         _myCodeMirror.on("change", delayEmit(function (cm) {
                         $('#sidepreview').html(marked(cm.getValue()));
                 }, 500));
-        $('#sidepreview').html(marked(_myCodeMirror.getValue()));
+
         measureBoxHeight();
         $('#offcanvastoggle').click(function () {
                 var rowoffcanvas = $('.row-offcanvas');
