@@ -7,7 +7,11 @@
     <meta name="description" content="Snippets : Markdown Online Editor" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" />
+    <link href="stylesheets/codemirror.css" rel="stylesheet" />
+    <link href="stylesheets/dialog.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/editor.css" rel="stylesheet" />
     <title>Snippets</title>
   </head>
 
@@ -29,14 +33,34 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="snippets" class="anchor" href="#snippets"><span class="octicon octicon-link"></span></a>Snippets</h1>
-
-<p>在线markdown编辑器</p>
-      </section>
+ <div class="container editor-description">
+    <div class="jumbotron">Hello, please enjoy writing with MarkDown!</div>
+  </div>
+  <div class="container editor">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-6">
+        <div id="editorview"></div>
+      </div>
+      <!--/span-->
+      <div class="col-xs-12 col-sm-6 sidebar-offcanvas">
+        <div id="sidepreview"></div>
+      </div>
+      <!--/span-->
     </div>
+    <!--/row-->
+    <div id="controlpanel">
+    <label>
+      <button type="button" class="btn btn-primary btn-xs" id="submitarticle">
+        <label>Submit</label>
+      </button>
+    </label> 
+    <label>
+      <button type="button" class="btn btn-primary btn-xs visible-xs" id="offcanvastoggle">
+        <label>Preview</label>
+      </button>
+    </label></div>
+    <hr />
+  </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
