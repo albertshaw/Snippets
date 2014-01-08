@@ -17,10 +17,9 @@ exports.save = function(article, db, cb) {
 exports.list = function(startPos, db, cb) {
     var Article = db.models.Article;
     startPos = Number(startPos)||0;
-    Article.find().select('title summary _id').skip(startPos).limit(10).sort({
+    Article.find().select('title summary _id').skip(startPos).limit(9).sort({
         createdate : -1
     }).exec(function(error,articles){
-        console.log("Found: "+articles.length);
         cb(error, {
             currentPos:articles.length+startPos,
             articles:articles

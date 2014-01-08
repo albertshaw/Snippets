@@ -21,7 +21,7 @@ exports.configure = function() {
         summary : String
     });
     articleSchema.index({
-        name : 1
+        title : 1
     });
     db.model('Article', articleSchema);
     return function(req, res, next) {
