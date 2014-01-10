@@ -35,7 +35,7 @@
       </div><!--/row-->
       <div id="controlpanel">
 	      <label>
-		      <button type="button" class="btn btn-primary btn-xs" id="submitarticle">Submit</button>
+		      <button type="button" class="btn btn-primary btn-xs" id="submitblog">Submit</button>
 	      </label>
 	      <label>
 		      <button type="button" class="btn btn-primary btn-xs visible-xs" id="offcanvastoggle">Preview</button>
@@ -44,12 +44,12 @@
       
       {{#def.footer}}
     </div><!--/.container-->
-	<form id="articleform" action="save" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
-		<input id="formarticle" name="content" type="hidden" value="">
-		<input id="formarticleid" name="id" type="hidden" value="{{!it.article.aid}}">
-		<input id="formarticlename" name="title" type="hidden" value="">
-		<input id="formarticletags" name="tags" type="hidden" value="">
-		<input id="formarticlesumm" name="summary" type="hidden" value="">
+	<form id="blogform" action="save" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+		<input id="formblog" name="content" type="hidden" value="">
+		<input id="formblogid" name="id" type="hidden" value="{{!it.blog.aid}}">
+		<input id="formblogname" name="title" type="hidden" value="">
+		<input id="formblogtags" name="tags" type="hidden" value="">
+		<input id="formblogsumm" name="summary" type="hidden" value="">
 	</form>
     <!-- Bootstrap core JavaScript
     ================================================== -->

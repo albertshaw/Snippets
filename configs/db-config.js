@@ -3,16 +3,17 @@ var mongoose = require('mongoose');
 
 exports.configure = function() {
 	var db = mongoose.createConnection(settings.DB_HOST, settings.OPTIONS);
-    var articleSchema = mongoose.Schema({
+    var BlogSchema = mongoose.Schema({
         createdate : {
             type : Date,
             'default' : Date.now
         },
-        lastModDate : {
-            type : Date,
-            'default' : Date.now
+        lastmoddate : Date,
+        author : {
+            type:String,
+            'default' : "John Doe"
         },
-        author : String,
+        authorsite : String,
         title : {
             type : String,
             unique : true
@@ -20,10 +21,7 @@ exports.configure = function() {
         content : String,
         summary : String
     });
-    articleSchema.index({
-        title : 1
-    });
-    db.model('Article', articleSchema);
+    db.model('Blog', BlogSchema);
     return function(req, res, next) {
         req.db = db;
         next();

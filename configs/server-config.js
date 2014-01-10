@@ -4,6 +4,7 @@ var settings = require('./settings').config;
 var db = require('./db-config');
 var RedisStore = require('connect-redis')(express);
 var dot = require('../express-dot');
+var blogcache = {};
 
 exports.configure = function(app) {
     app.configure("development", function() {
@@ -37,6 +38,10 @@ exports.configure = function(app) {
         app.use(express.bodyParser());
         app.use(express.methodOverride());
         app.use(db.configure());
+        app.use(function(req, res, next) {
+            req.blogcache = blogcache;
+            next();
+        });
         app.use(app.router);
         app.use(express.static(path.join(__dirname, '..', 'public')));
     });

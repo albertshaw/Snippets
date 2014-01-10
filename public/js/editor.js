@@ -22,7 +22,7 @@ $(document).ready(function () {
 			mode : 'markdown',
 			lineWrapping : true,
 			lineNumbers : true,
-			value : $("#formarticle").val(),
+			value : $("#formblog").val(),
 			extraKeys : {
 				"Enter" : "newlineAndIndentContinueMarkdownList"
 			}
@@ -82,11 +82,11 @@ $(document).ready(function () {
 			}
 		});
 	});
-	$('#submitarticle').click(function () {
-		$("#formarticle").val(_myCodeMirror.getValue());
-		$("#formarticlename").val($("#titleInput").val());
-		$("#formarticletags").val($("#tagsInput").val());
-		$("#formarticlesumm").val($("#summaryInput").val());
-		$("#articleform").submit();
+	$('#submitblog').click(function () {
+		$("#formblog").val(_myCodeMirror.getValue());
+		$("#formblogname").val($("#titleInput").val());
+		$("#formblogtags").val($("#tagsInput").val());
+		$("#formblogsumm").val($("#summaryInput").val());
+		$("#blogform").submit();
 	});
 });

@@ -1,4 +1,4 @@
-![Standard Markdown](./img/markdown.jpg "Standard Markdown")
+![Standard Markdown](../img/markdown.jpg "Standard Markdown")
 #Standard Markdown
 You can simply use markdown like blew:
 

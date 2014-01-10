@@ -18,14 +18,14 @@
             <p>这里记录了我生活和工作中的一些零零碎碎，请随便看看吧。</p>
           </div>
           
-          <div class="row" id="article-list">
+          <div class="row" id="blog-list">
           </div>
         </div>
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" >
           <div class="list-group" id="sidebar-list" data-spy="affix" data-offset-top="60">
             <a href="#" class="list-group-item active">Link</a>
-            <a href="article/new" class="list-group-item">新文章</a>
+            <a href="blog/new" class="list-group-item">新文章</a>
             <a href="#" class="list-group-item">Link</a>
             <a href="#" class="list-group-item">Link</a>
             <a href="#" class="list-group-item">Link</a>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	{{#def.header}}
+    <link href="{{!it.site.SITE_STATIC_URL}}/css/blog.css" rel="stylesheet">
+  </head>
+  <body>
+  	{{#def.topnav}}
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <div class="blog-title">
+          	{{!it.title}}
+          </div>
+          <div class="blog-other">
+            {{?it.author}}
+            <a href="{{!it.authorsite}}">{{!it.author}}</a> - {{!it.createdate}}
+            {{?? true }}
+          	{{!it.author}} - {{!it.createdate}}
+            {{?}}
+          </div>
+          <div class="blog-content">
+          	{{=it.content}}
+          </div>
+          {{?it.lastModDate}}
+          <div class="blog-lastModified">
+          	{{!it.lastModDate}}
+          </div>
+          {{?}}
+        </div>
+      </div><!--/row-->
+      {{#def.footer}}
+    </div><!--/.container-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/lib/jquery-1.10.2.js"></script>
+    <script src="{{!it.site.SITE_STATIC_URL}}/js/blog.js"></script>
+  </body>
+</html>

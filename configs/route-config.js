@@ -1,13 +1,13 @@
 var home = require('../routes').index;
-var article = require('../routes/article');
+var blog = require('../routes/blog');
 
 exports.configure = function(app){
     app.get('/', home);
-    app.get('/articles', article.list);
-    app.get('/article/get/:aid', article.getArticle);
-    app.get('/article/new', article.getEditor);
-    app.get('/article/help', article.getHelper);
+    app.get('/blogs', blog.list);
+    app.get('/blog/get/:year/:month/:title', blog.getBlog);
+    app.get('/blog/new', blog.getEditor);
+    app.get('/blog/help', blog.getHelper);
 
-    app.get('/article/edit', article.getEditor);
-    app.post('/article/save', article.save);
+    app.get('/blog/edit', blog.getEditor);
+    app.post('/blog/save', blog.save);
 };
