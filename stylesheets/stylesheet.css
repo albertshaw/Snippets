@@ -326,6 +326,17 @@ Full-Width Styles
   background: url('../images/icon_download.png') no-repeat 0% 90%;
 }
 
+@media screen and (max-width: 767px) {
+	#forkme_banner {
+		padding: 10px 0;
+		background: url('../images/blacktocat.png') #0090ff no-repeat 50% 50%;
+		text-indent:-9999px;
+	}
+	#project_tagline {
+		display:none;
+	}
+}
+
 .zip_download_link {
   display: block;
   float: right;
