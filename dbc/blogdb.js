@@ -1,18 +1,30 @@
 exports.save = function(blog, db, cb) {
     var Blog = db.models.Blog;
-    new Blog({
-        author : 'albertshaw',
-        authorsite : 'https://github.com/albertshaw/',
-        title : blog.title,
-        content : blog.content,
-        summary : blog.summary
-    }).save(function(error, result) {
-        if (error) {
-            cb(error);
-        } else {
-            cb(null, result);
-        }
-    });
+    if (blog.id) {
+        Blog.findByIdAndUpdate(blog.id, {
+            author : 'albertshaw',
+            authorsite : 'https://github.com/albertshaw/',
+            title : blog.title,
+            content : blog.content,
+            summary : blog.summary
+        }, {
+            upsert : true
+        }, cb);
+    } else {
+        new Blog({
+            author : 'albertshaw',
+            authorsite : 'https://github.com/albertshaw/',
+            title : blog.title,
+            content : blog.content,
+            summary : blog.summary
+        }).save(function(error, result) {
+            if (error) {
+                cb(error);
+            } else {
+                cb(null, result);
+            }
+        });
+    }
 };
 
 exports.list = function(startPos, db, cb) {
@@ -33,7 +45,7 @@ exports.get = function(params, db, cb) {
         title : params.title.split(".")[0]
     }), year = Number(params.year) || 0, month = Number(params.month) || 0;
     if (year && month) {
-        query.where("createdate").gte(new Date(year, month-1)).lt(new Date(year, month));
+        query.where("createdate").gte(new Date(year, month - 1)).lt(new Date(year, month));
     }
     query.exec(cb);
 };

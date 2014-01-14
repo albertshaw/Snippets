@@ -17,8 +17,8 @@
           This MarkDown editor is so-called WYSIWYG editor.
           Use Ctrl+F to Find and Replace what you want in editor.
           To see <a href="javascript:void(0);" id="markdownhelper">What is MarkDown?</a>
-		  <div class="col-xs-12 col-sm-8"><input type="text" id="titleInput" placeholder="标题"><input type="text" id="tagsInput" placeholder="标签，以,隔开"></div>
-		  <div class="col-xs-12 col-sm-10"><input class="long" type="text" id="summaryInput" placeholder="文章简介"></div>
+		  <div class="col-xs-12 col-sm-8"><input type="text" id="titleInput" placeholder="标题" value="{{!it.title}}"><input type="text" id="tagsInput" placeholder="标签，以,隔开" value="{{!it.tags}}"></div>
+		  <div class="col-xs-12 col-sm-10"><input class="long" type="text" id="summaryInput" placeholder="文章简介" value="{{!it.summary}}"></div>
 		  <div class="clearfix"></div>
         </div>
 	</div>
@@ -44,9 +44,9 @@
       
       {{#def.footer}}
     </div><!--/.container-->
-	<form id="blogform" action="save" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
-		<input id="formblog" name="content" type="hidden" value="">
-		<input id="formblogid" name="id" type="hidden" value="{{!it.blog.aid}}">
+	<form id="blogform" action="/blog/save" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+		<input id="formblog" name="content" type="hidden" value="{{!it.content}}">
+		<input id="formblogid" name="id" type="hidden" value="{{!it.id}}">
 		<input id="formblogname" name="title" type="hidden" value="">
 		<input id="formblogtags" name="tags" type="hidden" value="">
 		<input id="formblogsumm" name="summary" type="hidden" value="">

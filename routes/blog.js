@@ -28,7 +28,7 @@ exports.getBlog = function(req, res) {
         blogdb.get(req.params, req.db, function(error, result) {
             if (error) {
                 req.next(error);
-            } else {
+            } else if (result) {
                 result.content = marked(result.content);
                 res.render("blog", result, function(error, result) {
                     if (error) {
@@ -38,15 +38,44 @@ exports.getBlog = function(req, res) {
                         res.send(result);
                     }
                 });
+            } else {
+                res.send("Not found!");
             }
         });
     }
 };
 
 exports.getEditor = function(req, res) {
-    res.render("editor", {
-        blog : {}
-    });
+    if (!~req.url.search(/\.html?$/) && !~req.url.search(/new$/)) {
+        req.next();
+    } else {
+        if (req.param("year") && req.param("month") && req.param("title")) {
+            blogdb.get({
+                year : req.param("year"),
+                month : req.param("month"),
+                title : req.param("title")
+            }, req.db, function(error, result) {
+                if (!error && result) {
+                    delete req.blogcache[req.url.replace("/edit/","/get/")];
+                    res.render("editor", result);
+                } else {
+                    res.render("editor", {
+                        id : "",
+                        title : "",
+                        summary : "",
+                        content : ""
+                    });
+                }
+            });
+        } else {
+            res.render("editor", {
+                id : "",
+                title : "",
+                summary : "",
+                content : ""
+            });
+        }
+    }
 };
 
 exports.getHelper = function(req, res) {

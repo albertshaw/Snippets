@@ -20,16 +20,21 @@ exports.configure = function(app) {
     });
     // all environments
     app.configure(function() {
-        app.use(express.cookieParser());
-
+        app.use(express.cookieParser("XiaoL"));
         app.use(express.session({
             secret : settings.SESSION_SECRET,
-            store : new RedisStore(),
+//            store : new RedisStore(),
             key : 'XiaoLS',
             cookie : {
                 maxAge : 60000 * 60 * 24
             }
         }));
+        app.use(function(req,res,next){
+            if(req.session&&req.session.user){
+                console.log(req.session);
+            }
+            next();
+        });
         app.set('port', process.env.PORT || 3000);
         app.set('views', path.join(__dirname, '..', 'views'));
         app.set("view engine", "dot");
