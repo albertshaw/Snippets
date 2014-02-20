@@ -8,6 +8,7 @@ var auth = require('express').basicAuth(function(user, pass, callback) {
 
 exports.configure = function(app) {
     app.get('/', home);
+    app.get('/home', home);
     app.get('/blogs', blog.list);
     app.get('/blog/get/:year/:month/:title', blog.getBlog);
     app.get('/blog/new', auth,blog.getEditor);

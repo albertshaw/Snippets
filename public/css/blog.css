@@ -23,10 +23,24 @@ h2 {
 	right:4px;
 	z-index:2;
 }
-#welcomeboard {
-	padding: 15px;
-	margin-bottom: 15px;
-	font-size: 110%;
+.container .jumbotron {
+	margin-bottom: 0;
+    padding: 10px;
+}
+.blog-content {
+	border: 1px solid #EEE;
+    padding: 4px;
+}
+.blog-other {
+	text-align: right;
+	color: #999;
+	font-size: 70%;
+	line-height: 1;
+	font-weight: lighter;
+}
+.blog-title {
+	line-height: 1.5;
+    font-size: 210%;
 }
 /*
  * Off Canvas
