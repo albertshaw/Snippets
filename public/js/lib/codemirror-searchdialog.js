@@ -44,7 +44,7 @@
 				cm.focus();
 			},
 			replace = function (text, all, next) {
-				var query = searchInput.val();
+				var query = parseQuery(searchInput.val(), regexInput[0].checked);
 				var state = getSearchState(cm);
 				if (isQueryChanged(state.query, query)) {
 					return false;
