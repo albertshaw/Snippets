@@ -42,7 +42,7 @@ exports.list = function(startPos, db, cb) {
 
 exports.get = function(params, db, cb) {
     var query = db.models.Blog.findOne({
-        title : params.title.split(".")[0]
+        title : params.title.replace(/\.html?$/,"")
     }), year = Number(params.year) || 0, month = Number(params.month) || 0;
     if (year && month) {
         query.where("createdate").gte(new Date(year, month - 1)).lt(new Date(year, month));
