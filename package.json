@@ -1,6 +1,7 @@
 {
   "name": "Snippets",
   "version": "0.0.1",
+  "description":"hello peerless",
   "private": true,
   "scripts": {
     "start": "node snippets-server.js"
